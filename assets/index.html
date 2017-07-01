@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Local Weather App</title>
+        <meta name="description" content="Local Weather App">
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500i,700" rel="stylesheet">
+        <link rel="stylesheet" href="styles/custom.css">        
+    </head>
+    <body>  
+            <h1>Your Local Weather </h1>
+
+            <div class="icon-container">
+
+                   <div id="sun-shower" class="icon sun-shower">
+                    <div class="cloud"></div>
+                    <div class="sun">
+                      <div class="rays"></div>
+                    </div>
+                    <div class="rain"></div>
+                  </div>
+
+                  <div id="thunder-storm" class="icon thunder-storm">
+                    <div class="cloud"></div>
+                    <div class="lightning">
+                      <div class="bolt"></div>
+                      <div class="bolt"></div>
+                    </div>
+                  </div>
+
+                  <div id="sunny" class="icon sunny">
+                    <div class="sun">
+                      <div class="rays"></div>
+                    </div>
+                  </div>
+
+                  <div id="rainy" class="icon rainy">
+                    <div class="cloud"></div>
+                    <div class="rain"></div>
+                  </div>
+
+                  <div id="cloudy" class="icon cloudy">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                  </div>
+
+                  <div id="flurries" class="icon flurries">
+                    <div class="cloud"></div>
+                    <div class="snow">
+                      <div class="flake"></div>
+                      <div class="flake"></div>
+                    </div>
+                  </div>                  
+                  
+            </div>
+           
+            <div class="content-container">
+
+            <div class="weather-wrapper">
+              <div id="weather-container">
+                  <div id="location"></div>
+                  <div id="general"></div>
+                  <div id="temperature"></div>
+                  <div id="pressure"></div>
+                  <div id="humidity"></div>
+                  <div id="rain"></div>
+                  <div id="clouds"></div>
+                  <div id="wind"></div>
+                  <div id="visibility"></div>
+                  <button class="button" id="convertToCelsiusButton">Convert temperature to Celsius</button>  
+                  <button class="button" id="convertToFahrenheitButton">Convert temperature to Fahrenheit</button>  
+              </div>  
+
+            </div>            
+            
+            <div class="weather-footer">                    
+                <ul>
+                    <li><a class="button personal-website" href="http://elenatokmakova.com" target="-blank"><i class="fa fa-fw fa-globe"></i></a></li>
+                    <li><a class="button linkedin" href="https://www.linkedin.com/in/elena-tokmakova" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+                    <li><a class="button github" href="https://github.com/ElenaTokmakova" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+                    <li><a class="button facebook" href="https://www.facebook.com/ElenaTokmakova101" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+                    <li><a class="button codepen" href="https://codepen.io/ElenaTokmakova" target="_blank"><i class="fa fa-codepen"></i></a></li>
+                    <li><a class="button freecodecamp" href="https://www.freecodecamp.com/elenatokmakova" target="_blank" title="My Free Code Camp"><i class="fa fa-free-code-camp"></i></a></li>
+                </ul> 
+                <p> Icons based on <a href="https://dribbble.com/shots/2097042-Widget-Weather" target="_blank">Dribbble</a> by kylor</p>      
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+            <script src="scripts/custom.js"> </script>     
+    </body>
