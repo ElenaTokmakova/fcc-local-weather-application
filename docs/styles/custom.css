@@ -99,6 +99,7 @@ h1, h2, h3 {
       }
 
 .weather-footer ul li a {
+        margin-bottom: 10px;  
         font-weight:500;
         text-decoration:none;
         color:#fff;          
@@ -148,6 +149,16 @@ h1, h2, h3 {
   width: 12em;
   height: 10em;
   font-size: 1em; /* control icon size here */  
+}
+
+@media (max-width: 768px) {
+  .icon {
+    display: none;    
+  }
+  .icon.icon-background {
+    display: inline-block;
+    border: none;
+  }
 }
 
 .cloud {

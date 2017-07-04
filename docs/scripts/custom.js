@@ -16,12 +16,11 @@ $(document).ready(function() {
               var lon = position.coords.longitude;
               console.log("Latitude is ", lat, " Longitude is ", lon);  
 
-              openWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon +'&APPID=ab395f4ef9ca67740fc43a818901534f';
+              openWeatherUrl = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon +'&APPID=ab395f4ef9ca67740fc43a818901534f&units=metric';
 
               $.getJSON(openWeatherUrl, function(data){                                           
                          
-                          var fahrenheit = data.main.temp;
-                          var celsius = (fahrenheit-32)*5/9;  
+                          var celsius = data.main.temp; 
                           var location = data.name; 
                           var pressure = data.main.pressure;     
                           var clouds = data.clouds.all;  
@@ -31,60 +30,45 @@ $(document).ready(function() {
                           var humidity = data.main.humidity;
                           //var icon = data.weather[0].icon;
                                                                                                        
-                          $("#temperature").html("Temperature:  " + fahrenheit + "°F");
+                          $("#temperature").html("Temperature:  " + celsius + "°C");
                           $("#location").html("Your location: " + location);
                           $("#pressure").html("Pressure: " + pressure + " atm");
                           $("#clouds").html("Clouds: " + clouds + "%");
                           $("#wind").html("Wind speed: " + windspeed + " km/h");
                           $("#general").html("General weather condition: " + weatherCondition);
-                          $("#visibility").html("Visibility: " + visibility + " ft");
+                          $("#visibility").html("Visibility: " + visibility);
                           $("#humidity").html("Humidity: " + humidity + " %");
 
-                          function activeIcon() {
-                            var currentWeather = data.weather[0].main;
-                            console.log(currentWeather); 
-                            if (currentWeather === "Clouds") {$("#cloudy").addClass("icon-background");}                                           
-                            else if (currentWeather === "Rain") {$("#rainy").addClass("icon-background");}
-                            else if (currentWeather === "") {$("#").addClass("");} 
-                            else if (currentWeather === "") {$("#").addClass("");} 
-                            else if (currentWeather === "") {$("#").addClass("");} 
-                            else if (currentWeather === "") {$("#").addClass("");}                             
-                          }
-
-                          activeIcon();
-
-
-                          function toCelsius(fahrenheit) {
-                            celcius = Math.round((fahrenheit-32)*5/9*100)/100;
-                            return celsius;
-                          }
-
-                          function toFahrenheit(celcius) {
-                            fahrenheit = Math.round((celcius*9/5 - 32)*100)/100;
-                            return fahrenheit;
-                          }
-
-                          $("#convertToCelsiusButton").click(function(){
-                              
-                              toCelsius(fahrenheit);                             
-                              $("#temperature").html("Temperature:  " + celcius + "°C"); 
-                              $("#convertToCelsiusButton").hide("slow", function() {
-                                // Animation complete.
-                              });
-                              $("#convertToFahrenheitButton").show("slow", function() {
-                                // Animation complete.
-                              });
+                          //idea and weather keywords: https://codepen.io/imtoobose/pen/Pzqbxq
+                          var sunny = /(sun|clear|calm|hot)+/i;
+                          var storm = /(storm|tornado|hurricane)+/i;
+                          var cloudy = /(clouds|cloud|fog|dust|haze|smok|bluster)+/i;
+                          var rainy = /(rain|drizzl|shower)+/i;
+                          var snowy = /(snow|freez|hail|cold|sleet)+/i;
+                        
+                         
+                          var currentWeather = data.weather[0].main + " " + data.weather[0].description;
+                          console.log(currentWeather); 
+                          if (cloudy.test(currentWeather)) {$("#cloudy").addClass("icon-background");}                                           
+                          if (rainy.test(currentWeather)) {$("#rainy").addClass("icon-background");}
+                          if (sunny.test(currentWeather)) {$("#sunny").addClass("icon-background");} 
+                          if (storm.test(currentWeather)) {$("#thunder-storm").addClass("icon-background");} 
+                          if (snowy.test(currentWeather)) {$("#flurries").addClass("icon-background");}  
+                          if ($("#sunny").hasClass("icon-background") && $("#rainy").hasClass("icon-background")) {
+                            $("#sun-shower").addClass("icon-background");
+                          } 
+                                                                       
+                          $("#convertToCelsiusButton").click(function(){                                                                               
+                              $("#temperature").html("Temperature:  " + celsius + "°C"); 
+                              $("#convertToCelsiusButton").hide();
+                              $("#convertToFahrenheitButton").show();
                           });
 
                           $("#convertToFahrenheitButton").click(function(){
-                               toFahrenheit(celsius);
-                               $("#temperature").html("Temperature:  " + fahrenheit + "°C"); 
-                               $("#convertToCelsiusButton").show("slow", function() {
-                                // Animation complete.
-                              });
-                              $("#convertToFahrenheitButton").hide("slow", function() {
-                                // Animation complete.
-                              });
+                               fahrenheit = Math.round((celsius*9/5 + 32)*100)/100; 
+                               $("#temperature").html("Temperature:  " + fahrenheit + "°F"); 
+                               $("#convertToCelsiusButton").show();
+                              $("#convertToFahrenheitButton").hide();
                           });
 
                });
@@ -121,4 +105,4 @@ $(document).ready(function() {
 
 // CSS icons are borrowed from CODEPEN https://codepen.io/joshbader/pen/EjXgqr
 
-// Based on dribbble shot https://dribbble.com/shots/2097042-Widget-Weather by kylor
+// CSS icons are based on dribbble shot https://dribbble.com/shots/2097042-Widget-Weather by kylor
