@@ -40,7 +40,7 @@ $(document).ready(function() {
                           $("#humidity").html("Humidity: " + humidity + " %");
 
                           //idea and weather keywords: https://codepen.io/imtoobose/pen/Pzqbxq
-                          var sunny = /(sun|clear|calm|hot)+/i;
+                          var sunny = /(sun|clear|calm|hot|few clouds)+/i;
                           var storm = /(storm|tornado|hurricane)+/i;
                           var cloudy = /(clouds|cloud|fog|dust|haze|smok|bluster)+/i;
                           var rainy = /(rain|drizzl|shower)+/i;
