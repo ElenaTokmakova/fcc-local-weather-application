@@ -40,7 +40,7 @@ $(document).ready(function() {
                           $("#humidity").html("Humidity: " + humidity + " %");
 
                           //idea and weather keywords: https://codepen.io/imtoobose/pen/Pzqbxq
-                          var sunny = /(sun|clear|calm|hot|few clouds)+/i;
+                          var sunny = /(sun|clear|calm|hot|few clouds|scattered clouds)+/i;
                           var storm = /(storm|tornado|hurricane)+/i;
                           var cloudy = /(clouds|cloud|fog|dust|haze|smok|bluster)+/i;
                           var rainy = /(rain|drizzl|shower)+/i;
@@ -49,13 +49,13 @@ $(document).ready(function() {
                          
                           var currentWeather = data.weather[0].main + " " + data.weather[0].description;
                           console.log(currentWeather); 
-                          if (cloudy.test(currentWeather)) {$("#cloudy").addClass("icon-background");}                                           
-                          if (rainy.test(currentWeather)) {$("#rainy").addClass("icon-background");}
-                          if (sunny.test(currentWeather)) {$("#sunny").addClass("icon-background");} 
-                          if (storm.test(currentWeather)) {$("#thunder-storm").addClass("icon-background");} 
-                          if (snowy.test(currentWeather)) {$("#flurries").addClass("icon-background");}  
-                          if ($("#sunny").hasClass("icon-background") && $("#rainy").hasClass("icon-background")) {
-                            $("#sun-shower").addClass("icon-background");
+                          if (cloudy.test(currentWeather)) {$("#cloudy").addClass("icon-visible");}                                           
+                          if (rainy.test(currentWeather)) {$("#rainy").addClass("icon-visible");}
+                          if (sunny.test(currentWeather)) {$("#sunny").addClass("icon-visible");} 
+                          if (storm.test(currentWeather)) {$("#thunder-storm").addClass("icon-visible");} 
+                          if (snowy.test(currentWeather)) {$("#flurries").addClass("icon-visible");}  
+                          if ($("#sunny").hasClass("icon-visible") && $("#rainy").hasClass("icon-visible")) {
+                            $("#sun-shower").addClass("icon-visible");
                           } 
                                                                        
                           $("#convertToCelsiusButton").click(function(){                                                                               

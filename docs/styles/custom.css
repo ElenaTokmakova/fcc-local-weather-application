@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #333;
+  background-color: #d9edf7;
   color: #333;
   font-family: 'Montserrat', sans-serif;
   font-weight:400;  
@@ -15,6 +15,7 @@ body h1 {
     color: #fff;
     margin: 50px auto;
     text-align: center;
+    width: 100%;    
   }
 
 body h2, body h3 {
@@ -24,8 +25,8 @@ body h2, body h3 {
   }
 
 .content-container,
-.weather-footer,
 .icon-container,
+.weather-footer,
 h1, h2, h3 {
   display:-webkit-box;
   display:-ms-flexbox;
@@ -42,8 +43,18 @@ h1, h2, h3 {
   margin:0 auto; 
 }
 
+.content-container {
+  width: 95%;
+  max-width: 600px;
+  background: #333;
+  margin: 20px auto;
+  border-radius: 25px;
+}
+
 .icon-container {
- margin-bottom: 25px;
+   width: 100%;
+   max-width: 500px;
+   margin-bottom: 25px;
 }
 
 .weather-wrapper {  
@@ -143,22 +154,18 @@ h1, h2, h3 {
               background: #722872;
             }
 
+/* ICONS */
+
 .icon {
   position: relative;
-  display: inline-block;
+  display: none;
   width: 12em;
   height: 10em;
   font-size: 1em; /* control icon size here */  
 }
 
-@media (max-width: 768px) {
-  .icon {
-    display: none;    
-  }
-  .icon.icon-background {
-    display: inline-block;
-    border: none;
-  }
+.icon-visible {
+  display: inline-block;
 }
 
 .cloud {
@@ -561,8 +568,4 @@ h1, h2, h3 {
   }
 }
 
-
-.icon-background {
-  border: 5px solid #add8e6;
-}
 
