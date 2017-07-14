@@ -1,69 +1,33 @@
-
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #d9edf7;
-  color: #333;
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
-  font-weight:400;  
-}
-
-body h1 {
-    color: #fff;
-    margin: 50px auto;
-    text-align: center;
-    width: 100%;    
-  }
-
-body h2, body h3 {
-    color: #fff;
-    text-align: center;
-    margin: 30px auto;
-  }
-
-.content-container,
-.icon-container,
-.weather-footer,
-h1, h2, h3 {
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  -webkit-box-orient:horizontal;
-  -webkit-box-direction:normal;
-      -ms-flex-flow:row wrap;
-          flex-flow:row wrap;
-  -ms-flex-pack:distribute;
-      justify-content:space-around;
-  -webkit-box-align:center;
-      -ms-flex-align:center;
-          align-items:center;
-  margin:0 auto; 
+  background: url(../img/countryside.jpg) no-repeat center center fixed; 
+  background-size: cover;
 }
 
 .content-container {
   width: 95%;
   max-width: 600px;
-  background: #333;
   margin: 20px auto;
+  text-align: center;
+  background: rgba(20, 20, 20, 0.7); 
   border-radius: 25px;
 }
 
-.icon-container {
-   width: 100%;
-   max-width: 500px;
-   margin-bottom: 25px;
-}
-
-.weather-wrapper {  
-  width: 90%;
-}
+.content-container h1 {
+    color: #fff; 
+    padding: 35px 10px;
+  }
 
 .weather-wrapper #weather-container {
     color: #fff;
     text-align:center;
+    padding: 5px;
   }
 
 .weather-wrapper #weather-container button {
@@ -79,9 +43,8 @@ h1, h2, h3 {
       }
 
 .weather-footer {
-  width: 90%;  
   color:#fff;
-  margin: 30px auto;
+  padding: 30px 5px;
 }
 
 .weather-footer p a {
@@ -97,21 +60,17 @@ h1, h2, h3 {
         color: #72bcd4;
       }
 
-.weather-footer ul {
-    text-align: center;
+.weather-footer ul {    
     list-style: none; 
-    width: 100%;  
-    margin-bottom: 25px;
+    padding: 20px 5px;
     }
 
 .weather-footer ul li {     
-      margin: 0 5px; 
-      display: inline;
+      margin: 5px 5px; 
+      display: inline-block;
       }
 
-.weather-footer ul li a {
-        margin-bottom: 10px;  
-        font-weight:500;
+.weather-footer ul li a {        
         text-decoration:none;
         color:#fff;          
         }
@@ -153,6 +112,17 @@ h1, h2, h3 {
 .weather-footer ul li a.button.codepen:hover {
               background: #722872;
             }
+
+/*vertically center on big screens*/
+@media (min-width: 768px) {
+  .content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
 
 /* ICONS */
 
